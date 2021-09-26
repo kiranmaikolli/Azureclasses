@@ -1,0 +1,19 @@
+{
+	"name": "ds_sugarcube",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_gen2_connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "sampledata"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

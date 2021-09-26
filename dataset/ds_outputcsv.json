@@ -1,0 +1,35 @@
+{
+	"name": "ds_outputcsv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blob_connection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sinkfilename": {
+				"type": "string"
+			},
+			"sinkcontainername": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().sinkfilename",
+					"type": "Expression"
+				},
+				"container": "outputcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

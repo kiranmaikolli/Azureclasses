@@ -1,0 +1,59 @@
+{
+	"name": "ds_single_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Rowid",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Retailer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Salesmonth",
+				"type": "date"
+			},
+			{
+				"name": "Product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Manufacturerproductcode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "salesvalueusd",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "unitssold",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sourcefilename",
+				"type": "nvarchar"
+			},
+			{
+				"name": "runseqid",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "kiranmaidatabase",
+			"table": "salesload"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

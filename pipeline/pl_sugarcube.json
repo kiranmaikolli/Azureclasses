@@ -1,0 +1,112 @@
+{
+	"name": "pl_sugarcube",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"additionalColumns": [
+							{
+								"name": "sourcefilename",
+								"value": "$$FILEPATH"
+							}
+						],
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*.json",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table kiranmaidatabase.salesload",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['TransactionDate']"
+								},
+								"sink": {
+									"name": "Salesmonth",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"path": "$['StoreId']"
+								},
+								"sink": {
+									"name": "Manufacturerproductcode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Items'][0]['Product']"
+								},
+								"sink": {
+									"name": "Product",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Items'][0]['Price']"
+								},
+								"sink": {
+									"name": "salesvalueusd",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['sourcefilename']"
+								},
+								"sink": {
+									"name": "sourcefilename",
+									"type": "String"
+								}
+							}
+						],
+						"collectionReference": ""
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_sugarcube",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_multiplefilessql",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-09-25T18:06:22Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

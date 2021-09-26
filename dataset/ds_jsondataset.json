@@ -1,0 +1,20 @@
+{
+	"name": "ds_jsondataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_gen2_connection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Handycandy",
+				"fileSystem": "sampledata"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

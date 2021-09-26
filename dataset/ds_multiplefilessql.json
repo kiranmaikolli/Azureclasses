@@ -1,0 +1,17 @@
+{
+	"name": "ds_multiplefilessql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "kiranmaidatabase",
+			"table": "salesload"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
