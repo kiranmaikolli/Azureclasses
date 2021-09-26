@@ -5,13 +5,13 @@
 		"factoryName": {
 			"value": "covidreports-df"
 		},
-		"AzureSqlDatabase1_connectionString": {
-			"value": ""
-		},
 		"ls_blob_connection_connectionString": {
 			"value": ""
 		},
 		"ls_gen2_connection_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
 		"ls_gen2_connection_properties_typeProperties_url": {
