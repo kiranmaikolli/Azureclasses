@@ -1,19 +1,19 @@
 {
-	"name": "pl _ Dummy",
+	"name": "pl_wait",
 	"properties": {
 		"activities": [
 			{
-				"name": "Wait 10 seconds",
+				"name": "Wait1",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
-					"waitTimeInSeconds": 10
+					"waitTimeInSeconds": 20
 				}
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2021-09-26T15:05:05Z"
+		"lastPublishTime": "2021-09-28T17:12:23Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
