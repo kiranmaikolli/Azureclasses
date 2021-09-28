@@ -105,7 +105,13 @@
 							"outputs": [
 								{
 									"referenceName": "ds_read_copy",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"filename": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
